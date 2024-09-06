@@ -4,8 +4,9 @@ import React from "react"
 
 const Page = () => {
     <View  style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
-        <Text>Home Screen</Text>
+        <Text>Dashboard Screen</Text>
     </View>
 }
 
 export default Page
+
