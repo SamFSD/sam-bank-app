@@ -4,6 +4,12 @@ export interface ExpenseType {
   amount: string;
   percentage: string;
 }
+export interface TransactionType {
+  firstname: string;
+  lastname: string;
+  emailaddress: string;
+  amount: string;
+}
 
 export interface IncomeType {
   id: string;
