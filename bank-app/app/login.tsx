@@ -10,13 +10,16 @@ import Auth0 from 'react-native-auth0';
 const auth0 = new Auth0(auth0Config);
 
 const LoginScreen = () => {
-  const [request, response, promptAsync] = useAuthRequest({
-    clientId: auth0Config.clientId,
-    redirectUri: auth0Config.redirectUri,
-    scopes: ['openid', 'profile'],
-  }, {
-    authorizationEndpoint: `https://${auth0Config.domain}/authorize`,
-  });
+  const [request, response, promptAsync] = useAuthRequest(
+    {
+      clientId: auth0Config.clientId,
+      redirectUri: auth0Config.redirectUri,
+      scopes: ['openid', 'profile'],
+    },
+    {
+      authorizationEndpoint: `https://${auth0Config.domain}/authorize`,
+    }
+  );
 
   const router = useRouter();
   const [error] = useState(null);
@@ -26,9 +29,9 @@ const LoginScreen = () => {
       handleLoginSuccess(response.params.code);
     } else if (response?.type === 'error') {
     }
-  }, [response, router]);
+  }, [response]);
 
-  const handleLoginSuccess = async (code: string) => {
+  const handleLoginSuccess = async (code) => {
     try {
       const tokens = await auth0.auth.token({
         code,
@@ -37,7 +40,6 @@ const LoginScreen = () => {
       });
       await AsyncStorage.setItem('authToken', tokens.accessToken);
       console.log('Login successful:', tokens);
-      alert(`Login successful: ${tokens.accessToken}`);
       router.replace('(tabs)');
     } catch (error) {
       console.error('Error exchanging code for tokens', error);

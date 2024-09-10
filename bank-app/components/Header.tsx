@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 
 
+
 const Header = () => {
   return (
     <SafeAreaView style={styles.container}>
