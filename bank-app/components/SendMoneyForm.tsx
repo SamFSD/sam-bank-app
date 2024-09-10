@@ -53,15 +53,28 @@ const SendMoneyForm: React.FC = () => {
           keyboardType="email-address"
         />
       </View>
+
       <Button title="Send Money" onPress={handleSubmit} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  button: {
+    margin: 10,
+    backgroundColor: "#333",
+    borderRadius: 5,
+    padding: 10,
+    alignItems: "center",
+  },
   formContainer: {
     padding: 20,
-    width: "20%",
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    borderRadius: 10,
+    margin: 10, 
   },
   title: {
     fontSize: 20,
@@ -72,6 +85,7 @@ const styles = StyleSheet.create({
   },
   formGroup: {
     marginBottom: 15,
+    margin: 10, 
   },
   input: {
     height: 40,
@@ -79,7 +93,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
-    marginBottom: 10, // Space between input fields
+    marginBottom: 10,
   },
 });
 

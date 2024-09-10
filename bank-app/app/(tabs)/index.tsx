@@ -3,12 +3,7 @@ import { StyleSheet, View, Text, ScrollView } from 'react-native';
 import colors  from '../../constants/Colors';
 import { PieChart } from "react-native-gifted-charts";
 import SpendingBlock from '../../components/SpendingBlock';
-
 import spendingList from '../../data/spendingList.json';
-
-
-
-
 
 // get data from the backend
 // Define your colors directly or use constants from 'react-native'
@@ -42,9 +37,9 @@ export default function Dashboard() {
               marginBottom: 15,
               padding: 10,
               backgroundColor: '#444', // Background color for each item
-              borderRadius: 5,
-              
+              borderRadius: 5,              
             }}>
+
           <View style={styles.textContainer}>
             <Text style={styles.expenseTitle}>
               My <Text style={styles.expenseText}>Balance</Text>
@@ -53,6 +48,7 @@ export default function Dashboard() {
               R1475.<Text style={styles.cents}>00</Text>
             </Text>
           </View>
+          
           <View style={{paddingVertical:20,alignItems:'center'}}>
               <PieChart
                 data={pieData}

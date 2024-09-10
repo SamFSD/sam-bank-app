@@ -1,14 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import { TransactionType } from "../types";
-import Icon from "react-native-vector-icons/MaterialIcons"; // or any other icon set
 
-interface TransactionBlockProp {
-  TransactionList: TransactionType[];
+interface TransactionBlockProps {
+  transactionList: TransactionType[];
 }
 
-const TransactionBlock: React.FC<TransactionBlockProp> = ({
-  TransactionList,
+const TransactionBlock: React.FC<TransactionBlockProps> = ({
+  transactionList,
 }) => {
   return (
     <View style={styles.container}>
@@ -20,16 +19,21 @@ const TransactionBlock: React.FC<TransactionBlockProp> = ({
         <Text style={styles.headerItem}>Amount</Text>
       </View>
       <FlatList
-        data={TransactionList}
-        keyExtractor={(item) => item.emailaddress}
+        data={transactionList}
         renderItem={({ item }) => (
-          <View style={styles.itemWrapper}>          
-            <View style={styles.textWrapper}>
-              <Text style={styles.itemText}>{item.firstname}</Text>
-              <Text style={styles.itemText}>{item.lastname}</Text>
-              <Text style={styles.itemText}>{item.emailaddress}</Text>
-              <Text style={styles.itemText}>R{item.amount}</Text>
-            </View>
+          <View style={styles.itemWrapper}>
+            <Text style={[styles.itemText, { backgroundColor: "" }]}>
+              {item.firstname}
+            </Text>
+            <Text style={[styles.itemText, { backgroundColor: "" }]}>
+              {item.lastname}
+            </Text>
+            <Text style={[styles.itemText, { backgroundColor: "" }]}>
+              {item.emailaddress}
+            </Text>
+            <Text style={[styles.itemText, { backgroundColor: "" }]}>
+              R{item.amount}
+            </Text>
           </View>
         )}
       />
@@ -51,18 +55,18 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   tableHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#444',
+    borderBottomColor: "#444",
     marginBottom: 10,
   },
   headerItem: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     flex: 1,
-    textAlign: 'center',
+    textAlign: "center",
   },
   container: {
     marginVertical: 20,
@@ -90,11 +94,11 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   itemAmount: {
-    color: "#f0f0f0", 
+    color: "#f0f0f0",
     fontSize: 14,
   },
   itemDate: {
-    color: "#bbb", 
+    color: "#bbb",
     fontSize: 12,
   },
 });

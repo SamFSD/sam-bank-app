@@ -5,17 +5,17 @@ import TransactionList from "../../data/transactionSummary.json";
 import { TransactionType } from "../../types";
 import SendMoneyForm from "../../components/SendMoneyForm";
 
-const transactions: TransactionType[] = TransactionList as unknown as TransactionType[];export default function Transactions() {
+const transactions: TransactionType[] = TransactionList as unknown as TransactionType[];
+export default function Transactions() {
   return (
     <>
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
         <View style={styles.separator} />
       {/* //form to send money  */}
-      <SendMoneyForm /> {/* Include the form */}
-      </View>
-      
-      <TransactionBlock TransactionList={transactions} />
+      <SendMoneyForm />       
+      </View>      
+      <TransactionBlock transactionList={transactions} />
       </ScrollView>
     </>
   );
