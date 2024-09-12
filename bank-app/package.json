@@ -2,13 +2,13 @@
   "name": "bank-app",
   "main": "expo-router/entry",
   "version": "1.0.0",
- "scripts": {
+"scripts": {
   "start": "expo start",
   "android": "expo start --android",
   "ios": "expo start --ios",
   "web": "expo start --web",
   "test": "jest --watchAll",
-  "predeploy": "expo build:web",
+  "predeploy": "expo export --output-dir web-build",
   "deploy": "gh-pages -d web-build"
 },
 "homepage": "https://samFSD.github.io/sam-bank-app",
